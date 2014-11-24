@@ -5,7 +5,7 @@ describe "viewing my calendar" do
   include Rack::Test::Methods
 
   def app
-    Sinatra::Application
+    CQalendaRS::Query::Server
   end
   
   it "works" do

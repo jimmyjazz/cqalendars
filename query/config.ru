@@ -1,3 +1,3 @@
 require 'server'
 
-run Sinatra::Application
+run CQalendaRS::Query::Server

@@ -5,7 +5,7 @@ module CQalendaRS
     class Server < Sinatra::Base
 
       get "/" do
-        "hello world\n"
+        404
       end      
 
     end

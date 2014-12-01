@@ -7,10 +7,12 @@ describe "viewing my calendar" do
   def app
     CQalendaRS::Query::Server
   end
-  
-  it "works" do
-    get "/"
-    expect(last_response.body).to eql("hello world\n")
+
+  describe "GET /" do
+    it "returns 404 status code" do
+      get "/"
+      expect(last_response.status).to eql(404)
+    end
   end
   
 end

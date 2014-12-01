@@ -1,5 +1,7 @@
 require 'sinatra'
 
+require 'appointments_view'
+
 module CQalendaRS
   module Query
     class Server < Sinatra::Base
@@ -9,6 +11,7 @@ module CQalendaRS
       end
 
       get "/appointments" do
+        AppointmentsView.all
         "[]"
       end
 

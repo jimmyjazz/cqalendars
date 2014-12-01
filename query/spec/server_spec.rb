@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "viewing my calendar" do
-  
+
   include Rack::Test::Methods
 
   def app
@@ -14,5 +14,12 @@ describe "viewing my calendar" do
       expect(last_response.status).to eql(404)
     end
   end
-  
+
+  describe "GET /appointments" do
+    it "returns all appointments for all time" do
+      get "/appointments"
+      expect(last_response.body).to eql("[]")
+    end
+  end
+
 end

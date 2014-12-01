@@ -6,7 +6,11 @@ module CQalendaRS
 
       get "/" do
         404
-      end      
+      end
+
+      get "/appointments" do
+        "[]"
+      end
 
     end
   end

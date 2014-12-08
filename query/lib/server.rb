@@ -1,3 +1,4 @@
+require 'json'
 require 'sinatra'
 
 require 'appointments_view'
@@ -11,8 +12,7 @@ module CQalendaRS
       end
 
       get "/appointments" do
-        AppointmentsView.all
-        "[]"
+        AppointmentsView.all.to_json
       end
 
     end

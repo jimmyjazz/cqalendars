@@ -34,10 +34,10 @@ describe "viewing my calendar" do
       end
     end
 
-    context "I have one appointment" do
-      let(:appointments) { [] }
+    context "when I have one appointment" do
+      let(:appointments) { [{ appointment_id: 12345 }] }
     
-      it "returns all appointments for all time" do
+      it "returns the one appointment I have" do
         get "/appointments"
         expect(last_response.body).to eql('[{"appointment_id":12345}]')
       end

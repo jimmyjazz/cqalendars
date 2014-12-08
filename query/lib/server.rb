@@ -1,7 +1,7 @@
 require 'json'
 require 'sinatra'
 
-require 'appointments_view'
+require 'appointments/view'
 
 module CQalendaRS
   module Query

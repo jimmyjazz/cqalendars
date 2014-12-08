@@ -1,7 +1,9 @@
 module CQalendaRS
   module Query
-    class AppointmentsView
-      def self.all
+    module Appointments
+      class View
+        def self.all
+        end
       end
     end
   end

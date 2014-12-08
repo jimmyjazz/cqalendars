@@ -12,7 +12,7 @@ module CQalendaRS
       end
 
       get "/appointments" do
-        AppointmentsView.all.to_json
+        Appointments::View.all.to_json
       end
 
     end

@@ -17,14 +17,21 @@ describe "viewing my calendar" do
 
   describe "GET /appointments" do
     let(:appointments) { [] }
+    let(:decorated_appointments) { [] }
   
     before do
       allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
+      allow(CQalendaRS::Query::Appointments::View).to receive(:new).and_return(decorated_appointments)
     end
 
     it "retrieves appointments from appointments model" do
       get "/appointments"
       expect(CQalendaRS::Query::Appointments::Model).to have_received(:all)
+    end
+
+    it "passes appointments to the appointments view" do
+      get "/appointments"
+      expect(CQalendaRS::Query::Appointments::View).to have_received(:new).with(appointments)
     end
 
     context "I have no appointments" do
@@ -35,7 +42,7 @@ describe "viewing my calendar" do
     end
 
     context "when I have one appointment" do
-      let(:appointments) { [{ appointment_id: 12345 }] }
+      let(:decorated_appointments) { [{ appointment_id: 12345 }] }
     
       it "returns the one appointment I have" do
         get "/appointments"

@@ -29,9 +29,9 @@ describe "viewing my calendar" do
       expect(CQalendaRS::Query::Appointments::Model).to have_received(:all)
     end
 
-    it "passes appointments to the appointments view" do
+    pending "passes appointments to the appointments view" do
       get "/appointments"
-      expect(CQalendaRS::Query::Appointments::View).to have_received(:new).with(appointments)
+      expect(CQalendaRS::Query::Appointments::View).to have_received(:decorate).with(appointments)
     end
 
     context "I have no appointments" do

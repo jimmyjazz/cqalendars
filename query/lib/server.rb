@@ -1,6 +1,7 @@
 require 'json'
 require 'sinatra'
 
+require 'appointments/model'
 require 'appointments/view'
 
 module CQalendaRS
@@ -12,7 +13,7 @@ module CQalendaRS
       end
 
       get "/appointments" do
-        Appointments::View.all.to_json
+        JSON.generate(CQalendaRS::Query::Appointments::Model.all)
       end
 
     end

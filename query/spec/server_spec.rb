@@ -19,16 +19,16 @@ describe "viewing my calendar" do
     let(:appointments) { [] }
   
     before do
-      allow(CQalendaRS::Query::Appointments::View).to receive(:all).and_return(appointments)
+      allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
     end
 
-    it "retrieves appointments from appointments view" do
+    it "retrieves appointments from appointments model" do
       get "/appointments"
-      expect(CQalendaRS::Query::Appointments::View).to have_received(:all)
+      expect(CQalendaRS::Query::Appointments::Model).to have_received(:all)
     end
 
     context "I have no appointments" do
-      it "returns all appointments for all time" do
+      it "returns an empty array" do
         get "/appointments"
         expect(last_response.body).to eql("[]")
       end

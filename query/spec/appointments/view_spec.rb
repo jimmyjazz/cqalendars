@@ -3,6 +3,8 @@ require 'spec_helper'
 describe CQalendaRS::Query::Appointments::View do
   
   describe ".all" do
+    let(:appointments) { double }
+
     before do
       allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
     end

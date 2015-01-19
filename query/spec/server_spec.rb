@@ -43,7 +43,7 @@ describe "viewing my calendar" do
 
     it "returns the generated JSON as the response body" do
       get "/appointments"
-      expect(last_response.body).to eql(json_appointments.to_s)
+      expect(last_response.body).to eql(json_appointments)
     end
 
   end

@@ -16,9 +16,9 @@ describe "viewing my calendar" do
   end
 
   describe "GET /appointments" do
-    let(:appointments) { [] }
-    let(:decorated_appointments) { [] }
-    let(:json_appointments) { '[]' }
+    let(:appointments) { double }
+    let(:decorated_appointments) { double }
+    let(:json_appointments) { double }
   
     before do
       allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
@@ -43,7 +43,7 @@ describe "viewing my calendar" do
 
     it "returns the generated JSON as the response body" do
       get "/appointments"
-      expect(last_response.body).to eql(json_appointments)
+      expect(last_response.body).to eql(json_appointments.to_s)
     end
 
   end

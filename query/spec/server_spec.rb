@@ -21,7 +21,7 @@ describe "viewing my calendar" do
   
     before do
       allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
-      allow(CQalendaRS::Query::Appointments::View).to receive(:new).and_return(decorated_appointments)
+      allow(CQalendaRS::Query::Appointments::View).to receive(:decorate).and_return(decorated_appointments)
     end
 
     it "retrieves appointments from appointments model" do
@@ -29,7 +29,7 @@ describe "viewing my calendar" do
       expect(CQalendaRS::Query::Appointments::Model).to have_received(:all)
     end
 
-    pending "passes appointments to the appointments view" do
+    it "passes appointments to the appointments view" do
       get "/appointments"
       expect(CQalendaRS::Query::Appointments::View).to have_received(:decorate).with(appointments)
     end

@@ -18,10 +18,12 @@ describe "viewing my calendar" do
   describe "GET /appointments" do
     let(:appointments) { [] }
     let(:decorated_appointments) { [] }
+    let(:json_appointments) { '[]' }
   
     before do
       allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
       allow(CQalendaRS::Query::Appointments::View).to receive(:decorate).and_return(decorated_appointments)
+      allow(JSON).to receive(:generate).and_return(json_appointments)
     end
 
     it "retrieves appointments from appointments model" do
@@ -33,21 +35,15 @@ describe "viewing my calendar" do
       get "/appointments"
       expect(CQalendaRS::Query::Appointments::View).to have_received(:decorate).with(appointments)
     end
-
-    context "I have no appointments" do
-      it "returns an empty array" do
-        get "/appointments"
-        expect(last_response.body).to eql("[]")
-      end
+    
+    it "serialises the decorated appointments with JSON" do
+      get "/appointments"
+      expect(JSON).to have_received(:generate).with(decorated_appointments)
     end
 
-    context "when I have one appointment" do
-      let(:decorated_appointments) { [{ appointment_id: 12345 }] }
-    
-      it "returns the one appointment I have" do
-        get "/appointments"
-        expect(last_response.body).to eql('[{"appointment_id":12345}]')
-      end
+    it "returns the generated JSON as the response body" do
+      get "/appointments"
+      expect(last_response.body).to eql(json_appointments)
     end
 
   end

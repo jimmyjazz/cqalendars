@@ -19,7 +19,7 @@ describe "viewing my calendar" do
     let(:appointments) { double }
     let(:decorated_appointments) { double }
     let(:json_appointments) { double }
-  
+
     before do
       allow(CQalendaRS::Query::Appointments::Model).to receive(:all).and_return(appointments)
       allow(CQalendaRS::Query::Appointments::View).to receive(:decorate).and_return(decorated_appointments)
@@ -35,7 +35,7 @@ describe "viewing my calendar" do
       get "/appointments"
       expect(CQalendaRS::Query::Appointments::View).to have_received(:decorate).with(appointments)
     end
-    
+
     it "serialises the decorated appointments with JSON" do
       get "/appointments"
       expect(JSON).to have_received(:generate).with(decorated_appointments)
@@ -43,7 +43,7 @@ describe "viewing my calendar" do
 
     it "returns the generated JSON as the response body" do
       get "/appointments"
-      expect(last_response.body).to eql(json_appointments)
+      expect(last_response.body).to eql(json_appointments.to_s)
     end
 
   end

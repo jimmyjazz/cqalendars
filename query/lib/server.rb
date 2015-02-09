@@ -15,7 +15,7 @@ module CQalendaRS
       get "/appointments" do
         appointments = CQalendaRS::Query::Appointments::Model.all
         decorated_appointments = CQalendaRS::Query::Appointments::View.decorate(appointments)
-        JSON.generate(decorated_appointments)
+        JSON.generate(decorated_appointments).to_s
       end
 
     end

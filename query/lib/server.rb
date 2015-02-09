@@ -1,8 +1,13 @@
 require 'json'
 require 'sinatra'
+require 'sequel'
 
 require 'appointments/model'
 require 'appointments/view'
+
+DB = Sequel.sqlite
+
+require 'db/setup'
 
 module CQalendaRS
   module Query

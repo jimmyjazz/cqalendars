@@ -12,6 +12,12 @@ require 'db/setup'
 
 module CQalendaRS
   module Query
+    class Configuration
+      def self.command_base_url
+        "https://command.cqalendars.com/"
+      end
+    end
+
     class Server < Sinatra::Base
 
       get "/" do

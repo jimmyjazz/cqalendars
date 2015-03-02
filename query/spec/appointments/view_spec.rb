@@ -8,7 +8,7 @@ describe CQalendaRS::Query::Appointments::View do
     subject(:decorated_appointment) { CQalendaRS::Query::Appointments::View.decorate([appointment]).first }
 
     it "adds a hyperlink to cancel the appointment" do
-      expect(decorated_appointment).to include(cancel_url: "yadayada")
+      expect(decorated_appointment).to include(cancel_url: "https://command.cqalendars.com/appointments/123/cancel")
     end
 
     it "includes the appointment ID" do

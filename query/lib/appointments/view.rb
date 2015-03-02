@@ -9,7 +9,7 @@ module CQalendaRS
               start_time: appointment.start_time.utc.to_s,
               end_time: appointment.end_time.utc.to_s,
               description: appointment.description.to_s,
-              cancel_url: "yadayada",
+              cancel_url: Configuration.command_base_url + "appointments/#{appointment.id}/cancel",
             }
           end
         end

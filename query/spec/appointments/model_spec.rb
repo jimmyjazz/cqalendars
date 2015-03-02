@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe CQalendaRS::Query::Appointments::Model do
 
-  let(:appointment1) { { start_time: "2015-02-05 09:50:00", end_time: "2015-02-05 10:20:00", description: "Collis' RubyConf Keynote" } }
-  let(:appointment2) { { start_time: "2015-02-04 19:00:00", end_time: "2015-02-04 23:00:00", description: "RubyConf Opening Partay!" } }
-  let(:appointment3) { { start_time: "2015-02-07 16:30:00", end_time: "2015-02-07 20:45:00", description: "RubyConf Picnic" } }
+  let(:appointment1) { { start_time: "2015-02-05 09:50:00 AEST", end_time: "2015-02-05 10:20:00 AEST", description: "Collis' RubyConf Keynote" } }
+  let(:appointment2) { { start_time: "2015-02-04 19:00:00 AEST", end_time: "2015-02-04 23:00:00 AEST", description: "RubyConf Opening Partay!" } }
+  let(:appointment3) { { start_time: "2015-02-07 16:30:00 AEST", end_time: "2015-02-07 20:45:00 AEST", description: "RubyConf Picnic" } }
 
   before do
     [appointment1, appointment2, appointment3].each do |appointment_hash|

@@ -5,6 +5,7 @@ require 'sequel'
 require 'appointments/model'
 require 'appointments/view'
 
+Sequel.default_timezone = :utc
 DB = Sequel.sqlite
 
 require 'db/setup'

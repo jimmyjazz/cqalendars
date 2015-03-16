@@ -45,12 +45,5 @@ describe "viewing my calendar" do
       get "/appointments"
       expect(last_response.body).to eql(json_appointments.to_s)
     end
-
-    it "includes a URL to create a new appointment" do
-      get "/appointments"
-      expect(last_response.body).to include('"add_appointment_url":"https://command.cqalendars.com/appointments/add"')
-    end
-
   end
-
 end

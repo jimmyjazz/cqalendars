@@ -9,6 +9,7 @@ module CQalendaRS
       end
 
       post "/appointments/add" do
+        400
       end
 
     end

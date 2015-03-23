@@ -16,5 +16,30 @@ describe "adding an appointment" do
   end
 
   describe "POST /appointments/add" do
+    describe "request validation" do
+
+      before do
+        post "/appointments/add", payload
+      end
+
+      context "with an empty payload" do
+
+        let(:payload) { {} }
+
+        it "returns a 400 Bad Request status code" do
+          expect(last_response.status).to eql(400)
+        end
+
+      end
+    end
+
+    xit "invokes the correct command handler" do
+
+    end
+
+    xit "returns the correct response" do
+
+    end
+
   end
 end
